@@ -1767,3 +1767,262 @@ Completed 200 OK in 15ms (Views: 9.0ms | ActiveRecord: 0.6ms | Allocations: 3620
   [1m[36mTRANSACTION (9.3ms)[0m  [1m[36mcommit transaction[0m
   [1m[36mReview Load (0.1ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."moviegoer_id" = ?[0m  [["moviegoer_id", 4]]
   [1m[36mReview Load (0.3ms)[0m  [1m[34mSELECT "reviews".* FROM "reviews" WHERE "reviews"."moviegoer_id" = ?[0m  [["moviegoer_id", 5]]
+Started GET "/" for 127.0.0.1 at 2023-11-15 09:18:23 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/movies" for 127.0.0.1 at 2023-11-15 09:18:23 -0500
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering movies/index.html.haml within layouts/application
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.haml:15
+  Rendered movies/index.html.haml within layouts/application (Duration: 35.7ms | Allocations: 32681)
+  Rendered layout layouts/application.html.haml (Duration: 69.2ms | Allocations: 59841)
+Completed 200 OK in 90ms (Views: 71.8ms | ActiveRecord: 0.9ms | Allocations: 72652)
+
+
+Started GET "/movies/new" for 127.0.0.1 at 2023-11-15 09:18:31 -0500
+Processing by MoviesController#new as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering movies/new.html.haml within layouts/application
+  Rendered movies/new.html.haml within layouts/application (Duration: 34.4ms | Allocations: 11282)
+  Rendered layout layouts/application.html.haml (Duration: 37.5ms | Allocations: 13877)
+Completed 200 OK in 41ms (Views: 38.6ms | ActiveRecord: 0.0ms | Allocations: 14676)
+
+
+Started POST "/movies" for 127.0.0.1 at 2023-11-15 09:18:44 -0500
+Processing by MoviesController#create as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "movie"=>{"title"=>"The round", "rating"=>"G", "release_date(1i)"=>"2023", "release_date(2i)"=>"11", "release_date(3i)"=>"15"}, "commit"=>"Save Changes"}
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/movies_controller.rb:14:in `create'
+  [1m[36mMovie Create (0.7ms)[0m  [1m[32mINSERT INTO "movies" ("title", "rating", "description", "release_date", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?, ?)[0m  [["title", "The Round"], ["rating", "G"], ["description", nil], ["release_date", "2023-11-15 00:00:00"], ["created_at", "2023-11-15 14:18:44.259525"], ["updated_at", "2023-11-15 14:18:44.259525"]]
+  ↳ app/controllers/movies_controller.rb:14:in `create'
+  [1m[36mTRANSACTION (12.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/movies_controller.rb:14:in `create'
+Redirected to http://127.0.0.1:3000/movies
+Completed 302 Found in 24ms (ActiveRecord: 13.5ms | Allocations: 4419)
+
+
+Started GET "/movies" for 127.0.0.1 at 2023-11-15 09:18:44 -0500
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering movies/index.html.haml within layouts/application
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.haml:15
+  Rendered movies/index.html.haml within layouts/application (Duration: 2.9ms | Allocations: 2565)
+  Rendered layout layouts/application.html.haml (Duration: 6.4ms | Allocations: 5157)
+Completed 200 OK in 8ms (Views: 6.7ms | ActiveRecord: 0.1ms | Allocations: 5745)
+
+
+Started GET "/movies/30" for 127.0.0.1 at 2023-11-15 09:18:48 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.haml
+  Rendering movies/show.html.haml within layouts/application
+  Rendered movies/show.html.haml within layouts/application (Duration: 5.6ms | Allocations: 5103)
+  Rendered layout layouts/application.html.haml (Duration: 8.0ms | Allocations: 7576)
+Completed 200 OK in 11ms (Views: 8.4ms | ActiveRecord: 0.1ms | Allocations: 10038)
+
+
+Started GET "/movies/30/edit" for 127.0.0.1 at 2023-11-15 09:18:53 -0500
+Processing by MoviesController#edit as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:23:in `edit'
+  Rendering layout layouts/application.html.haml
+  Rendering movies/edit.html.haml within layouts/application
+  Rendered movies/edit.html.haml within layouts/application (Duration: 22.5ms | Allocations: 7265)
+  Rendered layout layouts/application.html.haml (Duration: 27.8ms | Allocations: 9724)
+Completed 200 OK in 34ms (Views: 29.0ms | ActiveRecord: 0.2ms | Allocations: 10738)
+
+
+Started PUT "/movies/30" for 127.0.0.1 at 2023-11-15 09:19:06 -0500
+Processing by MoviesController#update as HTML
+  Parameters: {"authenticity_token"=>"[FILTERED]", "movie"=>{"title"=>"Kapumota", "rating"=>"G", "release_date(1i)"=>"2023", "release_date(2i)"=>"11", "release_date(3i)"=>"15"}, "commit"=>"Update Movie Info", "id"=>"30"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:26:in `update'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/movies_controller.rb:27:in `update'
+  [1m[36mMovie Update (0.2ms)[0m  [1m[33mUPDATE "movies" SET "title" = ?, "updated_at" = ? WHERE "movies"."id" = ?[0m  [["title", "Kapumota"], ["updated_at", "2023-11-15 14:19:06.462592"], ["id", 30]]
+  ↳ app/controllers/movies_controller.rb:27:in `update'
+  [1m[36mTRANSACTION (8.7ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/movies_controller.rb:27:in `update'
+Redirected to http://127.0.0.1:3000/movies/30
+Completed 302 Found in 15ms (ActiveRecord: 9.1ms | Allocations: 3072)
+
+
+Started GET "/movies/30" for 127.0.0.1 at 2023-11-15 09:19:06 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"30"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 30], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.haml
+  Rendering movies/show.html.haml within layouts/application
+  Rendered movies/show.html.haml within layouts/application (Duration: 0.2ms | Allocations: 107)
+  Rendered layout layouts/application.html.haml (Duration: 3.9ms | Allocations: 2580)
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.1ms | Allocations: 3549)
+
+
+Started GET "/movies" for 127.0.0.1 at 2023-11-15 09:19:08 -0500
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering movies/index.html.haml within layouts/application
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.haml:15
+  Rendered movies/index.html.haml within layouts/application (Duration: 3.1ms | Allocations: 2513)
+  Rendered layout layouts/application.html.haml (Duration: 12.5ms | Allocations: 5013)
+Completed 200 OK in 14ms (Views: 12.8ms | ActiveRecord: 0.1ms | Allocations: 5553)
+
+
+Started GET "/movies" for 127.0.0.1 at 2023-11-15 11:30:05 -0500
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering movies/index.html.haml within layouts/application
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.haml:15
+  Rendered movies/index.html.haml within layouts/application (Duration: 38.1ms | Allocations: 32759)
+  Rendered layout layouts/application.html.haml (Duration: 75.8ms | Allocations: 59454)
+Completed 200 OK in 93ms (Views: 77.9ms | ActiveRecord: 0.8ms | Allocations: 72000)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2023-11-15 11:30:11 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.haml
+  Rendering movies/show.html.haml within layouts/application
+  Rendered movies/show.html.haml within layouts/application (Duration: 13.9ms | Allocations: 5163)
+  Rendered layout layouts/application.html.haml (Duration: 18.3ms | Allocations: 7750)
+Completed 200 OK in 25ms (Views: 19.2ms | ActiveRecord: 0.3ms | Allocations: 10318)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2023-11-15 11:32:07 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.3ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.haml
+  Rendering movies/show.html.haml within layouts/application
+  Rendered movies/show.html.haml within layouts/application (Duration: 1.2ms | Allocations: 107)
+  Rendered layout layouts/application.html.haml (Duration: 13.2ms | Allocations: 2580)
+Completed 200 OK in 20ms (Views: 15.0ms | ActiveRecord: 0.3ms | Allocations: 3400)
+
+
+Started GET "/movies/1" for 127.0.0.1 at 2023-11-15 11:33:22 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.haml
+  Rendering movies/show.html.haml within layouts/application
+  Rendered movies/show.html.haml within layouts/application (Duration: 23.4ms | Allocations: 10039)
+  Rendered layout layouts/application.html.haml (Duration: 23.8ms | Allocations: 10129)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 0.2ms | Allocations: 11810)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"index", :controller=>"reviews", :id=>"1"}, missing required keys: [:movie_id]
+Did you mean?  movie_reviews_url):
+    13: %h3 Description:
+    14: = link_to 'Edit info', edit_movie_path(@movie)
+    15: = link_to 'Back to movie list', movies_path
+    16: = link_to 'Add review', movie_reviews_path
+  
+app/views/movies/show.html.haml:16
+Started GET "/movies/1" for 127.0.0.1 at 2023-11-15 11:33:50 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.haml
+  Rendering movies/show.html.haml within layouts/application
+  Rendered movies/show.html.haml within layouts/application (Duration: 9.6ms | Allocations: 6550)
+  Rendered layout layouts/application.html.haml (Duration: 9.9ms | Allocations: 6630)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.2ms | Allocations: 8368)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"reviews", :id=>"1"}, missing required keys: [:movie_id]
+Did you mean?  new_movie_review_url):
+    13: %h3 Description:
+    14: = link_to 'Edit info', edit_movie_path(@movie)
+    15: = link_to 'Back to movie list', movies_path
+    16: = link_to 'Add review', new_movie_review_path
+  
+app/views/movies/show.html.haml:16
+Started GET "/movies/1" for 127.0.0.1 at 2023-11-15 11:33:51 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.haml
+  Rendering movies/show.html.haml within layouts/application
+  Rendered movies/show.html.haml within layouts/application (Duration: 1.4ms | Allocations: 1264)
+  Rendered layout layouts/application.html.haml (Duration: 1.7ms | Allocations: 1335)
+Completed 500 Internal Server Error in 5ms (ActiveRecord: 0.1ms | Allocations: 2204)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"reviews", :id=>"1"}, missing required keys: [:movie_id]
+Did you mean?  new_movie_review_url):
+    13: %h3 Description:
+    14: = link_to 'Edit info', edit_movie_path(@movie)
+    15: = link_to 'Back to movie list', movies_path
+    16: = link_to 'Add review', new_movie_review_path
+  
+app/views/movies/show.html.haml:16
+Started GET "/movies/1" for 127.0.0.1 at 2023-11-15 11:33:54 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.haml
+  Rendering movies/show.html.haml within layouts/application
+  Rendered movies/show.html.haml within layouts/application (Duration: 1.8ms | Allocations: 1265)
+  Rendered layout layouts/application.html.haml (Duration: 2.1ms | Allocations: 1336)
+Completed 500 Internal Server Error in 6ms (ActiveRecord: 0.2ms | Allocations: 2109)
+
+
+  
+ActionView::Template::Error (No route matches {:action=>"new", :controller=>"reviews", :id=>"1"}, missing required keys: [:movie_id]
+Did you mean?  new_movie_review_url):
+    13: %h3 Description:
+    14: = link_to 'Edit info', edit_movie_path(@movie)
+    15: = link_to 'Back to movie list', movies_path
+    16: = link_to 'Add review', new_movie_review_path
+  
+app/views/movies/show.html.haml:16
+Started GET "/" for ::1 at 2023-11-15 11:34:32 -0500
+Started GET "/movies" for ::1 at 2023-11-15 11:34:32 -0500
+Processing by MoviesController#index as HTML
+  Rendering layout layouts/application.html.haml
+  Rendering movies/index.html.haml within layouts/application
+  [1m[36mMovie Load (0.1ms)[0m  [1m[34mSELECT "movies".* FROM "movies"[0m
+  ↳ app/views/movies/index.html.haml:15
+  Rendered movies/index.html.haml within layouts/application (Duration: 7.6ms | Allocations: 8530)
+  Rendered layout layouts/application.html.haml (Duration: 13.9ms | Allocations: 14919)
+Completed 200 OK in 16ms (Views: 15.3ms | ActiveRecord: 0.1ms | Allocations: 16169)
+
+
+Started GET "/movies/1" for ::1 at 2023-11-15 11:34:34 -0500
+Processing by MoviesController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mMovie Load (0.2ms)[0m  [1m[34mSELECT "movies".* FROM "movies" WHERE "movies"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/movies_controller.rb:7:in `show'
+  Rendering layout layouts/application.html.haml
+  Rendering movies/show.html.haml within layouts/application
+  Rendered movies/show.html.haml within layouts/application (Duration: 8.5ms | Allocations: 5386)
+  Rendered layout layouts/application.html.haml (Duration: 11.8ms | Allocations: 7858)
+Completed 200 OK in 15ms (Views: 12.4ms | ActiveRecord: 0.2ms | Allocations: 8780)
+
+
+Started GET "/movies/1/reviews" for ::1 at 2023-11-15 11:34:37 -0500
+  
+NoMethodError (undefined method `before_filter' for ReviewsController:Class
+Did you mean?  before_action):
+  
+app/controllers/reviews_controller.rb:2:in `<class:ReviewsController>'
+app/controllers/reviews_controller.rb:1:in `<main>'
